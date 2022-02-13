@@ -1,20 +1,22 @@
-from typing import Any
+###############################################################################################################
+# модуль для легкого копирования файлов и папок
 import shutil
+# модуль для работы с вводом и выводом в консоль
 import sys
-
+###############################################################################################################
 # класс для работы с файлом
 class File:
     # конструктор
-    def __init__(self: Any) -> None:
+    def __init__(self) -> None:
         pass
 
     # чтение файла
-    def file_read(self: Any, file: str) -> list[str]:
+    def file_read(self, file: str) -> list[str]:
         with open(file, 'r') as f:
             return f.readlines()
 
     # чтение в список содержимого файла содержащий текст в utf-8 кодировке
-    def file_read_utf8(self: any, file: str) -> list[str]:
+    def file_read_utf8(self, file: str) -> list[str]:
         str_byte = None
         with open(file, 'r', encoding='utf-8') as f:
             #shutil.copyfileobj(f, arr.extend)
@@ -24,21 +26,21 @@ class File:
         return str(str_byte, 'utf-8').split('\n')
 
     # запись информации в файл
-    def file_write(self: Any, out: str, arr: list) -> None:
+    def file_write(self, out: str, arr: list) -> None:
         for i in range(len(arr)):
             arr[i] += '\n'
         with open(out, 'w') as f:
             f.writelines(arr)
 
     # вывод в консоль содержимого файла (обычный текстовый файл)
-    def file_output_console(self: Any, arr: list) -> None:
+    def file_output_console(self, arr: list) -> None:
         for line in arr:
             #print(line.strip())
             #print(repr(line))
             print(line, end='')
 
     # вывод в консоль содержимого файла содержащий текст в utf-8 кодировке (аналог type filename в cmd.exe)
-    def file_output_console_utf8(self: Any, file: str) -> None:
+    def file_output_console_utf8(self, file: str) -> None:
         with open(file, 'r', encoding='utf-8') as f:
             shutil.copyfileobj(f, sys.stdout)
 

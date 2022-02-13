@@ -10,3 +10,4 @@ class Conductor(SearchCountContinue, File):
         SearchCountContinue.__init__(self)
         # так работать не будет (если вызывать не явно)
         # super(SearchCountContinue, self).__init__()
+        # super().__init__()
