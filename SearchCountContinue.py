@@ -1,13 +1,11 @@
-from typing import Any
-
 # класс для поиска повторных строк
 class SearchCountContinue:
     # конструктор
-    def __init__(self: Any) -> None:
+    def __init__(self) -> None:
         self.__res__ = dict()
 
     # поиск повторяющихся строк
-    def search(self: Any, arr: list) -> dict[str, list[int]]:
+    def search(self, arr: list) -> dict[str, list[int]]:
         for i in range(len(arr)):
             if 1 < arr.count(arr[i]):
                 try:
